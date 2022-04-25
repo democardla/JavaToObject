@@ -20,7 +20,7 @@ public final class controlMethod {
      * ifTermial():用来审查一个用户是否为这一个家系中的末端
      *
      */
-    public boolean ifTerminal(User startPoint){
+    private boolean ifTerminal(User startPoint){
         if(startPoint.getChildren() == null){
             return true;
         }
