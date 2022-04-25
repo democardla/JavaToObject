@@ -64,14 +64,20 @@ public final class controlMethod {
     public void checkNextGeneration(User startPoint){
         for (int a = 0;a<1;a++){
             circulations = 0;
-        }
-        if (circulations<lowerBound-1) {
-            for (int i = 0; i < startPoint.children.length; i++) {
-                if (startPoint.getChildren(i).ifIll)
-                    ret.add(startPoint.getChildren(i));
-            }
+        }//reset count of circulation to 0
+
+        if (!ifTerminal(startPoint)){
+            if (circulations<lowerBound-1) {
+                for (int i = 0; i < startPoint.children.length; i++) {
+                    if (startPoint.getChildren(i).ifIll)
+                        ret.add(startPoint.getChildren(i));
+                }
+            }//if this individual is not the final one, check all next generations
+        } else {
+
         }
     }
+
     /**
      *
      * method linked to
