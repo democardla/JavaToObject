@@ -19,9 +19,9 @@ public class Test {
         Vector couple = getRelatedPerson(total,startPoint);
         for (int i = 0;i< couple.size();i++){
             if (couple.get(i) instanceof Male){
-                //printItems(String uniqueMark,atRow(locationKey))//在具体某一行上输出结果:男生输出？女生输出？
+                //TODO: printItems(String uniqueMark,atRow(locationKey))//在具体某一行上输出结果:男生输出？女生输出？
             } else if (couple.get(i) instanceof Female){
-                //printItems(String uniqueMark,atRow(locationKey))
+                //TODO: printItems(String uniqueMark,atRow(locationKey))
             }
         }
     }
