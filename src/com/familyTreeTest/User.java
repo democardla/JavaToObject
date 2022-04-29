@@ -1,49 +1,45 @@
 package com.familyTreeTest;
 
-public class User {
-    String id = null;
+import java.util.Vector;
+
+abstract class User {
+    static int IDfactory = -1;
+    private int IDGenerator(){
+        return ++IDfactory;
+    }
+    private int id = IDGenerator();
+    boolean ifIll = false;
+    int ageOfOnset;//发病年龄
+
     User father = null;
     User mather = null;
-    User[] sibling = null;//兄弟姐妹
+    Vector sibling = new Vector();//兄弟姐妹
     User couple = null;
-    User[] children = null;
-
-    int age;
-    String name;
-    String gender;
-    String birthDate;
-    boolean ifIll = false;
-
+    Vector children = new Vector();
 
     public User() {
     }
 
-    public User(int age, String name, String gender, String birthDate) {
-        this.age = age;
-        this.name = name;
-        this.gender = gender;
-        this.birthDate = birthDate;
-    }
-
-    public User(User father, User mather, User[] sibling, User[] children, int age, String name, String gender, String birthDate, String id , User couple) {
+    public User(int ageOfOnset, boolean ifIll, User father, User mather, Vector sibling, User couple, Vector children) {
+        this.ageOfOnset = ageOfOnset;
+        this.ifIll = ifIll;
         this.father = father;
         this.mather = mather;
         this.sibling = sibling;
-        this.children = children;
         this.couple = couple;
-        this.age = age;
-        this.name = name;
-        this.gender = gender;
-        this.birthDate = birthDate;
-        this.id = id;
+        this.children = children;
+    }//在读取文件的时候创建相关的对象使用
+
+    public int getId() {
+        return id;//获取ID
     }
 
-    public String getId() {
-        return id;
+    public boolean isIfIll() {
+        return ifIll;
     }
 
-    public User getCouple() {
-        return couple;
+    public int getAgeOfOnset() {
+        return ageOfOnset;
     }
 
     public User getFather() {
@@ -54,67 +50,24 @@ public class User {
         return mather;
     }
 
-    public User[] getSibling() {
+    public Vector getSibling() {
         return sibling;
     }
 
-    public User getChildren(int index) {
-        return children[index];
+    public User getCouple() {
+        return couple;
     }
-    public User[] getChildren(){
+
+    public Vector getChildren() {
         return children;
     }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public String getBirthDate() {
-        return birthDate;
-    }
-
-
-    public void setFather(User father) {
-        this.father = father;
-    }
-
-    public void setMather(User mather) {
-        this.mather = mather;
-    }
-
-    public void setSibling(User[] sibling) {
-        this.sibling = sibling;
-    }
-
-    public void setChildren(User[] children) {
-        this.children = children;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public void setBirthDate(String birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    public void setCouple(User couple) {
-        this.couple = couple;
+    public User getChild(int index){
+        if(!children.isEmpty()) {
+            if (children.get(index) instanceof Female)
+            return (Female)children.get(index);
+        } else {
+            return (Male)children.get(index);
+        }
+        return null;
     }
 }

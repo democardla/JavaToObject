@@ -52,11 +52,18 @@ public final class controlMethod {
     }
 
     public void checkPeers(User startPoint){
-        for (int i = 0; i < startPoint.sibling.length; i++) {
+        for (int i = 0; i < startPoint.sibling.size(); i++) {
             if (startPoint.ifIll)
                 ret.add(startPoint);
-            if (startPoint.sibling[i].ifIll)
-                ret.add(startPoint.sibling[i]);
+            if (startPoint.sibling.get(i) instanceof Male)
+                if(((Male) startPoint.sibling.get(i)).ifIll) {
+                    ret.add(startPoint.sibling.get(i));
+                }
+            if (startPoint.sibling.get(i) instanceof Female){
+                if (((Female) startPoint.sibling.get(i)).ifIll){
+                    ret.add(startPoint.sibling.get(i));
+                }
+            }
         }
     }
 
@@ -68,9 +75,9 @@ public final class controlMethod {
 
         if (!ifTerminal(startPoint)){
             if (circulations<lowerBound-1) {
-                for (int i = 0; i < startPoint.children.length; i++) {
-                    if (startPoint.getChildren(i).ifIll)
-                        ret.add(startPoint.getChildren(i));
+                for (int i = 0; i < startPoint.children.size(); i++) {
+                    if (startPoint.getChild(i).ifIll)
+                        ret.add(startPoint.getChild(i));
                 }
             }//if this individual is not the final one, check all next generations
         } else {
@@ -87,16 +94,16 @@ public final class controlMethod {
      *
      */
     static private int locationKey = 0;
-    public static User[] getRelatedPerson(int total,User startPoint){
+    public static Vector getRelatedPerson(int total,User startPoint){
         if (locationKey<total) {
             locationKey+=1;
             if (startPoint.getChildren() != null) {
-                User[] children = startPoint.getChildren();
-                for (int i = 0; i < children.length; i++) {
-                    User[] couple = getRelatedPerson(total, children[i]);
+                Vector children = startPoint.getChildren();
+                for (int i = 0; i < children.size(); i++) {
+                    Vector couple = getRelatedPerson(total, startPoint.getChild(i));
                     locationKey-=1;
-                    for (int j = 0;j<couple.length;j++){
-                        if (couple[j].gender == "male"){
+                    for (int j = 0;j<couple.size();j++){
+                        if (couple.get(j) instanceof Male){
                             //printItems(String uniqueMark,atRow(locationKey))//在具体某一行上输出结果:男生输出？女生输出？
                         } else {
                             //printItems(String uniqueMark,atRow(locationKey))
@@ -105,7 +112,9 @@ public final class controlMethod {
                 }
             }
         }
-        User[] couple = {startPoint,startPoint.couple};
+        Vector couple = new Vector();// {startPoint,startPoint.couple};
+        couple.add(startPoint);
+        couple.add(startPoint.couple);
         return couple;
     }
 }
