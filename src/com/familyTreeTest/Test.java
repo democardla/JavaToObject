@@ -1,6 +1,5 @@
 package com.familyTreeTest;
 
-import java.security.PrivateKey;
 import java.util.Vector;
 
 import static com.familyTreeTest.controlMethod.getRelatedPerson;

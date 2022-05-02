@@ -5,4 +5,5 @@ public class Male extends User{
     boolean isPrecursor = false;//是否是先现者
     private int generation;
 
+
 }
