@@ -1,6 +1,6 @@
 package day11.inherit.object;
 
-import java.security.PrivateKey;
+
 
 /**
  * 接口用来实现对象的多继承
