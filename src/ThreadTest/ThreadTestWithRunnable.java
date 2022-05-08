@@ -1,6 +1,4 @@
-package 线程Test;
-
-import org.junit.experimental.theories.Theories;
+package ThreadTest;
 
 public class ThreadTestWithRunnable {
     public static void main(String[] args) {

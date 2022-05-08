@@ -1,4 +1,4 @@
-package 线程Test;
+package ThreadTest;
 /*
  * 多线程的创建：
  * 方法1：创建一个类继承于Thread类，并重写它的run方法；实例化类的对象，并通过这个对象调用其start()方法

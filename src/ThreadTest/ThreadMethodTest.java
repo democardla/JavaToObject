@@ -1,4 +1,4 @@
-package 线程Test;
+package ThreadTest;
 /*
  * Thread中的方法
  * 1。start方法：启动
@@ -7,7 +7,7 @@ package 线程Test;
  * 4。getName方法：获取当前线程的名字
  * 5。setName方法：设置当前线程的名字
  * 6。yield方法：用来释放cpu以进行下一次线程执行的分配
- * 7。join方法：对象方法，形参为时间，意为**时间后join。执行途中插入一个其他线程，等其他线程执行结束后在继续执行该线程
+ * 7。join方法：对象方法，形参为时间，意为**时间后join。执行途中插入一个其他线程（在a线程中调用b线程），等其他线程执行结束后在继续执行该线程
  * 8。stop方法：强制结束进程：过时了
  * 9。sleep方法：当前进程休眠一会，单位为毫秒，它会抛出一个异常：interruptedException
  * 10。 isAlive方法：判断一个线程是否还有效
