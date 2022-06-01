@@ -22,7 +22,7 @@ public class ExceptionTest {
         String str = "123";
         str = "asd";
 
-        int anotherInt = 0;//假如要使用这哥变脸，并且这个变量可能会抛出异常，那么就使用动态初始化，先声明在使用
+        int anotherInt = 0;//假如要使用这个变量，并且这个变量可能会抛出异常，那么就使用动态初始化，先声明在使用
         try {
             anotherInt = Integer.parseInt(str);
             int anInt = Integer.parseInt(str);

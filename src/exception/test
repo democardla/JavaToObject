@@ -1,0 +1,22 @@
+"20卫检1班.xlsx"
+"2020级四个班全部数据 副本.xlsx"
+"2020级卫检 2.xlsx"
+"班级省内外人数.xls.xls"
+"班级照片.zip"
+"点名表.numbers"
+"上课点名表.numbers"
+"校级获奖汇总.zip"
+"学生公寓安全专项督查一览表1011.pdf"
+
+
+正则表达式知识点：
+    [ABC] -> 匹配 [...] 中的所有字符，例如 [aeiou] 匹配字符串 "google runoob taobao" 中所有的 e o u a 字母。
+    [^ABC]	匹配除了 [...] 中字符的所有字符，例如 [^aeiou] 匹配字符串 "google runoob taobao" 中除了 e o u a 字母的所有字母。
+
+
+idea查找与替换操作：
+    查找当前文件内容：ctrl+F  如上图片
+    查找全局文件：ctrl+shift+F  或double shift（按两下）或ctrl+shift+N
+    替换当前文件内容 ：ctrl+R  如上图片
+    你想通过编辑器快速的将所有的’29’，变为29，你可以 ctrl + R, 搜索： \'(\d*)\', 替换为：$1
+
